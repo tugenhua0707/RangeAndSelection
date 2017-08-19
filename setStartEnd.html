@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div id="myDiv" style="color: red">这段文字中第三个文字到第十个文字将被删除</div>
+      <button onclick="deleteChar()">删除文字</button>
+      <script>
+        function deleteChar() {
+          var div = document.getElementById("myDiv");
+          var textNode = div.firstChild;
+          var rangeObj = document.createRange();
+          rangeObj.setStart(textNode, 2);
+          rangeObj.setEnd(textNode, 10);
+          rangeObj.deleteContents();
+        }
+      </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div id="div">
+        <span>aaaaaa</span>
+        <button onclick="cloneDivContent()">克隆</button>
+      </div>
+      <script>
+        function cloneDivContent() {
+          var div = document.getElementById('div');
+          var rangeObj = document.createRange();
+          rangeObj.selectNodeContents(div);
+          var documentFragment = rangeObj.cloneContents();
+          div.appendChild(documentFragment);
+        }
+      </script>
+    </body>
+</html>

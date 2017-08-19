@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div id="div" style="background-color: red; width:300px; height: 50px;">元素中的内容</div>
+      <button onclick="selectRangeContents()">选择元素</button>
+      <button onclick="unselect()">取消选择</button>
+      <button onclick="showRange()">显示Range内容</button>
+      <script>
+        var rangeObj = document.createRange();
+        function selectRangeContents() {
+          var div = document.getElementById('div');
+          rangeObj.selectNode(div);
+        }
+        function unselect() {
+          rangeObj.collapse(false);
+        } 
+        function showRange() {
+          alert(rangeObj.toString());
+        }
+      </script>
+    </body>
+</html>

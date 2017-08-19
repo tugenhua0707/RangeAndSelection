@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <h3>Selection对象与Range对象使用demo</h3>
+      <div id="div" style="background-color: #e0a0b0; width:300px; height: 50px;">aaaaadsadsdasadsbbgg</div>
+      <button onclick="deleteRangeContents(true);">删除内容</button>
+      <button onclick="deleteRangeContents(false);">删除元素</button>
+
+      <script>
+          function deleteRangeContents(flag) {
+            var div = document.getElementById("div");
+            var rangeObj = document.createRange();
+            if (flag) {
+              rangeObj.selectNodeContents(div);
+            } else {
+              rangeObj.selectNode(div);
+            }
+            rangeObj.deleteContents();
+          }
+      </script>
+    </body>
+</html>

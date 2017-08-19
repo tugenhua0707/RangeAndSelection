@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <button onclick="cloneRange()">克隆Range对象</button>
+      <script>
+        function cloneRange() {
+          var rangeObj = document.createRange();
+          console.log(rangeObj)
+          rangeObj.selectNodeContents(document.body);
+          var rangeClone = rangeObj.cloneRange();
+          console.log(rangeClone);
+          alert(rangeClone.toString());
+        }
+      </script>
+    </body>
+</html>
