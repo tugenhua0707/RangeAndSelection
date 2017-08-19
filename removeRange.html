@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div id="firstLine">第一行文字</div>
+      <div>第二行文字</div>
+      <button onclick="selectFirstLine()">选取第一行文字</button>
+      <button onclick="unselect()">取消选择</button>
+
+      <script>
+        var rangeObj;
+        function selectFirstLine() {
+          var firstLine = document.getElementById("firstLine");
+          var selection = window.getSelection();
+          rangeObj = document.createRange();
+          rangeObj.selectNodeContents(firstLine);
+          selection.removeAllRanges();
+          selection.addRange(rangeObj);
+        }
+        function unselect() {
+          var selection = window.getSelection();
+          if (selection.rangeCount > 0) {
+            selection.removeRange(rangeObj);
+          }
+        }
+      </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div onmouseup="extend()" contenteditable="true" style="width:400px;background-color: red">asdsddsawwwdwassdxcdff</div>
+      <script>
+        function extend() {
+          var selection = window.getSelection();
+          if (!selection.isCollapsed) {
+            // selection.isCollapsed 当属性值为true，表示用户选取的内容的起点与终点位于相同的位置
+            if (selection.focusNode.nodeType == Node.TEXT_NODE) {
+              // 如果选取内容在一个文字节点内
+              var selRange = selection.getRangeAt(0);
+
+              // 如果用户鼠标反向选取页面内容
+              if (selRange.startContainer == selection.focusNode && 
+                selRange.startOffset == selection.focusOffset) {
+                selection.extend(selection.focusNode, 0);
+              } else {
+                // 如果用户鼠标正向选取页面内容
+                selection.extend(selection.focusNode, selection.focusNode.textContent.length);
+              }
+            }
+          }
+        }
+      </script>
+    </body>
+</html>

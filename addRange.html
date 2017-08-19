@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div id="firstLine">第一行文字</div>
+      <div>第二行文字</div>
+      <button onclick="selectFirstLine()">选择第一行文字</button>
+      <button onclick="removeAllRanges()">取消选择文字</button>
+      <button onclick="selectContent()">选中第一行文字中第二个到第四个文字</button>
+      <script>
+        function selectFirstLine() {
+          var firstLine = document.getElementById("firstLine");
+          var selection = window.getSelection();
+          var rangeObj = document.createRange();
+
+          rangeObj.selectNodeContents(firstLine);
+          // 所有内容变为非选取状态
+          selection.removeAllRanges();
+
+          // 然后自动选取某个区域
+          selection.addRange(rangeObj);
+        }
+        function removeAllRanges() {
+          var selection = window.getSelection();
+          selection.removeAllRanges();
+        }
+        function selectContent() {
+          var firstLine = document.getElementById("firstLine");
+          var textNode = firstLine.firstChild;
+          var selection = window.getSelection();
+          var rangeObj = document.createRange();
+          rangeObj.setStart(textNode, 1);
+          rangeObj.setEnd(textNode, 3);
+          
+          // 所有内容变为非选取状态
+          selection.removeAllRanges();
+
+          // 然后自动选取某个区域
+          selection.addRange(rangeObj);
+          console.log(selection.toString());  // 打印第二个到第四个文字
+        }
+      </script>
+    </body>
+</html>

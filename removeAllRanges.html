@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div>adsasddsadsaads</div>
+      <button onclick="removeAllRanges()">取消选择</button>
+      <button>一般的按钮点击看效果没有反应--对比下</button>
+      <script>
+        function removeAllRanges() {
+          var selection = window.getSelection();
+          selection.removeAllRanges();
+        }
+      </script>
+    </body>
+</html>

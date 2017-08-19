@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div onmouseup="unSelect()" contenteditable="true" style="width:400px;background-color: #e0f0d0;">adasadsdasdsadsa</div>
+      <script>
+        function unSelect() {
+          var selection = window.getSelection();
+          selection.collapseToEnd();
+        }
+      </script>
+    </body>
+</html>

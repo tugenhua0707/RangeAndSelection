@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div id="myDiv">单击“选取元素”按钮将选取div元素中的全部文字</div>
+      <button onclick="selectContents()">选取元素</button>
+      <script>
+        function selectContents() {
+          var elementNode = document.getElementById("myDiv");
+          var selection = window.getSelection();
+          selection.selectAllChildren(elementNode);
+        }
+      </script>
+    </body>
+</html>
