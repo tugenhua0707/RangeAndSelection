@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div contenteditable="true">
+        <span style="color:red">dassd</span>
+        <br />
+        <span style="color: blue">adadsads</span>
+      </div>
+      <button onclick="getColor()">获取选取文字的颜色</button>
+
+      <script type="text/javascript">
+        function getColor() {
+          alert(document.queryCommandValue('foreColor'));
+        }
+      </script>
+    </body>
+</html>

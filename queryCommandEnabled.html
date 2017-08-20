@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div contenteditable="true">adsadsdasdsadas</div>
+      <button onclick="toBlod()">测试bold命令状态</button>
+
+      <script>
+        function toBlod() {
+          if (document.queryCommandEnabled('bold')) {
+            document.execCommand('bold', false, null);
+          } else {
+            alert('请选取一些文字');
+          }
+        }
+      </script>
+    </body>
+</html>

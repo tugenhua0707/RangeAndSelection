@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <div contenteditable="true">adsadsdasdsadas</div>
+      <button onclick="toBlod()">测试bold命令状态</button>
+
+      <script>
+        function toBlod() {
+          var state = document.queryCommandState('bold');
+          switch(state) {
+            case true:
+              alert('粗体格式被去除');
+              break;
+            case false:
+              alert("选取文字将变为粗体文字");
+              break;
+          }
+          document.execCommand('bold', false, null);
+        }
+      </script>
+    </body>
+</html>
