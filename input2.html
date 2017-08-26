@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+   <html>
+      <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+        <title>标题</title>
+      </head>
+      <body>
+        <p>
+          <label>点击文本框内容触发事件</label>
+          <input type="text" id="txt" value="abcdefghijklmn" onclick="getSelectPosition(this);">
+        </p>
+        <p>
+          <label>焦点位置：</label>
+          <input type="text" id="txt1" value="">
+        </p>
+        <p>
+          <label>选中起始位置：</label>
+          <input type="text" id="txt2" value="">
+          <label>选中结束位置：</label>
+          <input type="text" id="txt3" value="">
+        </p>
+        <p>
+          <label>选中内容：</label>
+          <input type="text" id="txt4" value="">
+        </p>
+        <script>
+          function getSelectPosition($this) {
+            var input1 = document.getElementById("txt1");
+            var input2 = document.getElementById("txt2");
+            var input3 = document.getElementById("txt3");
+            var input4 = document.getElementById("txt4");
+
+            var emptyValue = -1;
+            var selectStart;
+            var selectEnd;
+            var pos;
+            var selectText;
+            if ($this.setSelectionRange) {
+              // 标准浏览器
+              selectStart = $this.selectionStart;
+              selectEnd = $this.selectionEnd;
+              if (selectStart == selectEnd) {
+                pos = selectStart;
+                selectStart = emptyValue;
+                selectEnd = emptyValue;
+              } else {
+                pos = emptyValue;
+              }
+              selectText = $this.value.substring(selectStart,selectEnd);
+            } else {
+              // IE浏览器
+              var range = document.selection.createRange();
+              selectText = range.text;
+              range.moveStart("character",-$this.value.length);
+              pos = range.text.length;
+              selectStart = pos - (selectText.length);
+              selectEnd = selectStart + (selectText.length);
+
+              if(selectStart != selectEnd){
+                pos = emptyValue;
+              }else{
+                selectStart = emptyValue;
+                selectEnd = emptyValue;
+              }
+            }
+            input1.value = pos;
+            input2.value = selectStart;
+            input3.value = selectEnd;
+            input4.value = selectText;
+          }
+        </script>
+      </body>
+  </html>

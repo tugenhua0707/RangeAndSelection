@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <input id="inputId" type="text" oninput="inputFunc()" onkeyup="keyupFunc()"/>
+      <textarea id="textareaId" oninput="textareaFunc()"></textarea>
+      <script>
+        var inputId = document.getElementById("inputId");
+        console.log(inputId.value);
+        console.log(inputId.selectionStart);
+        console.log(inputId.selectionEnd);
+
+        function inputFunc() {
+          console.log(inputId.value);
+          console.log(inputId.selectionStart);
+          console.log(inputId.selectionEnd);
+        }
+        function textareaFunc() {
+          var textareaId = document.getElementById('textareaId');
+          console.log(textareaId.selectionStart);
+          console.log(textareaId.selectionEnd)
+        }
+      </script>
+    </body>
+</html>

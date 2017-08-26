@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+      <title>标题</title>
+    </head>
+    <body>
+      <input id="inputId" type="text" value="这是一段测试文本"/>
+      
+      <script>
+        var inputId = document.getElementById('inputId');
+        inputId.addEventListener('focus', function() {
+          if(inputId.setSelectionRange) {
+            inputId.setSelectionRange(1, inputId.value.length - 2);
+          }
+        });
+      </script>
+    </body>
+</html>
